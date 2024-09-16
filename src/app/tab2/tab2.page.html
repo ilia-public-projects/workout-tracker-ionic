@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title> Facebook </ion-title>
+		<ion-buttons slot="end">
+			<ion-button *ngIf="user">
+				<ion-avatar slot="end">
+					<img [src]="user.picture" />
+				</ion-avatar>
+			</ion-button>
+		</ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-button (click)="facebookLogin()">Facebook login</ion-button>
+		</ion-toolbar>
+	</ion-header>
+
+	<app-explore-container name="Tab 2 page"></app-explore-container>
+</ion-content>

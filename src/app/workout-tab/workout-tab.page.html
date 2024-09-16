@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-title>
+			Workout
+		</ion-title>
+		<ion-buttons slot="start">
+			<ion-menu-button>
+				<ion-avatar>
+					<img [src]="imageUrl" />
+				</ion-avatar>
+			</ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+	<div class="routine-section-title">Pick a routine</div>
+
+	<!-- Display this section when there are no routines available -->
+	<div class="no-routines" *ngIf="!list?.length">
+		<ion-icon name="sad-outline"></ion-icon>
+		<p>No workout routines available.</p>
+		<ion-button color="primary" (click)="manageRoutine()">Add a Routine</ion-button>
+	</div>
+
+	<ion-list *ngIf="list?.length">
+		<ion-item *ngFor="let item of list">
+			<ion-label>
+				<h2>{{item.name}}</h2>
+			</ion-label>
+			<ion-button slot="end" color="primary" (click)="manageRoutine(item.id)">Edit</ion-button>
+			<ion-button slot="end" color="primary">Start</ion-button>
+		</ion-item>
+	</ion-list>
+
+	<ion-button expand="block" class="start-without-routine-button">Start workout without routine</ion-button>
+
+</ion-content>
+
+<div class="fab-label">Add a routine</div>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+	<ion-fab-button class="fab" (click)="manageRoutine()">
+		<ion-icon name="create-outline"></ion-icon>
+	</ion-fab-button>
+</ion-fab>

@@ -1,0 +1,11 @@
+{
+	"typescript.preferences.autoImportFileExcludePatterns": [
+		"@ionic/angular/common",
+		"@ionic/angular/standalone"
+	],
+	"html.format.wrapLineLength": 320,
+	"editor.wordWrap": "wordWrapColumn",
+	"editor.wordWrapColumn": 200,
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"editor.tabSize": 4,
+}

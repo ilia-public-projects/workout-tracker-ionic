@@ -1,0 +1,26 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Exercises</ion-title>
+	</ion-toolbar>
+	<ion-toolbar>
+		<ion-searchbar [debounce]="500" (ionInput)="handleSearch($event)"> </ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+	<ion-card class="ion-no-padding ion-no-margin ion-margin-top">
+		<ion-card-content class="ion-no-margin ion-no-padding">
+			<ion-list>
+				<ion-item *ngFor="let item of list" (click)="info(item)">
+					<ion-thumbnail slot="start">
+						<img src="../../assets/exercise_master/{{item.imagePaths[0]}}" />
+					</ion-thumbnail>
+					<ion-label>
+						<label>{{item.name}}</label>
+						<p>{{item.category}}</p>
+					</ion-label>
+				</ion-item>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

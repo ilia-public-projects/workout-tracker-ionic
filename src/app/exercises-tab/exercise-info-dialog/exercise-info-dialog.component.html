@@ -1,0 +1,101 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>{{exercise?.name}}</ion-title>
+        <ion-buttons slot="end">
+
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-no-padding">
+    <ion-card *ngIf="exercise" class="ion-no-padding ion-no-margin">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6"> <img alt="Silhouette of mountains" src="../../assets/exercise_master/{{exercise.imagePaths[0]}}" /></ion-col>
+                <ion-col size="6"> <img alt="Silhouette of mountains" src="../../assets/exercise_master/{{exercise.imagePaths[1]}}" /></ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Force</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.force }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Level</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.level }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Mechanic</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.mechanic }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Equipment</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.equipment }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Primary muscles</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.primaryMuscles.join(', ') }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Secondary muscles</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.secondaryMuscles.length > 0 ? exercise.secondaryMuscles.join(', ') : 'none' }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <strong>Category</strong>
+                    </ion-col>
+                    <ion-col size="6">
+                        <p>{{ exercise.category }}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="ion-padding-top">
+                    <ion-col size="12">
+                        <strong>Instructions</strong>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12">
+                        <ol>
+                            <li *ngFor="let instruction of exercise.instructions" class="ion-padding-top">{{ instruction }}</li>
+                        </ol>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </ion-card-content>
+    </ion-card>
+</ion-content>

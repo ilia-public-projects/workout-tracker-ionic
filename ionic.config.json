@@ -1,0 +1,15 @@
+{
+  "name": "iliaGym",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "ssl": {
+    "key": "./ssl/MyLocalhostServer.key",
+    "cert": "./ssl/MyLocalhostServer.crt"
+  },
+  "serve": {
+    "port": 4200,
+    "host": "localhost"
+  }
+}

@@ -1,0 +1,59 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+:root {
+    --ion-color-primary: #1E90FF;
+    --ion-color-secondary: #FF6347;
+    --ion-color-light: #F5F5F5;
+    --ion-color-medium: #808080;
+    --ion-font-family: 'Helvetica', sans-serif;
+    --ion-color-header-text: #1E90FF;
+    /* Dodger Blue */
+}
+
+ion-header {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-light);
+
+    ion-button.button-clear {
+        --background: transparent;
+        --color: var(--ion-color-light);
+    }
+}
+
+ion-toolbar {
+    --background: var(--ion-color-primary);
+    --color: #FFFFFF;
+
+    ion-buttons {
+        --color: #FFFFFF;
+    }
+}
+
+ion-content {
+    background-color: var(--ion-color-light);
+}
+
+ion-card {
+    --background: #FFFFFF;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-header {
+    --color: var(--ion-color-primary);
+}
+
+ion-button {
+    --border-radius: 20px;
+}
+
+ion-button.primary {
+    --background: var(--ion-color-primary);
+    --color: #FFFFFF;
+}
+
+ion-button.outline {
+    --background: transparent;
+    --border-color: var(--ion-color-primary);
+    --color: var(--ion-color-primary);
+}

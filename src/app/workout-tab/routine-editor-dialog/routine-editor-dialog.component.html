@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ routineId ? 'Edit routine' : 'Add routine' }}</ion-title>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismissModal()">Close</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="save()">{{ routineId ? 'Save' : 'Add' }}</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="form" [formGroup]="form">
+
+    <ion-item>
+        <ion-input formControlName="name" placeholder="Routine name"></ion-input>
+    </ion-item>
+
+    <ion-list formArrayName="exercises" class="ion-margin-top">
+        <div *ngFor="let exercise of exercises.controls; let i = index" [formGroupName]="i">
+            <ion-item lines="none">
+                <ion-button fill="clear" slot="start" (click)="swapExercise(i)">{{exercise?.get('name')?.value}}</ion-button>
+                <ion-button slot="end" (click)="showExerciseInfo(i)"><ion-icon name="information-circle-outline"></ion-icon></ion-button>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-grid formArrayName="sets" style="border:1px solid">
+                    <ion-row class="header-row">
+                        <ion-col><strong>Set</strong></ion-col>
+                        <ion-col><strong>kg</strong></ion-col>
+                        <ion-col><strong>Reps</strong></ion-col>
+                        <ion-col><strong>Actions</strong></ion-col>
+                    </ion-row>
+                    <ion-row *ngFor="let set of sets(exercise).controls; let j = index" [formGroupName]="j" class="ion-no-padding ion-no-margin">
+                        <ion-col>
+                            <ion-input placeholder="Sets" value="{{ j + 1 }}" readonly></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input placeholder="kg" type="number" formControlName="weight"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input placeholder="reps" type="number" formControlName="reps"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-button size="small" class="trash-button" (click)="removeSet(i,j)" color="light"> <ion-icon name="trash" slot="icon-only"></ion-icon></ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-button size="small" expand="block" (click)="addSet(exercise)" color="medium">+ Set</ion-button>
+                        </ion-col>
+   
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+
+        </div>
+
+    </ion-list>
+
+    <ion-button expand="block" size="small" class="ion-margin-horizontal ion-margin-top" (click)="addExercise()">+ Exercise</ion-button>
+</ion-content>
