@@ -1,7 +1,5 @@
 # Workout Tracker (Ionic)
 
-![Workout Tracker Logo](https://example.com/logo.png) <!-- Replace with actual logo URL if you have one -->
-
 **Workout Tracker** is a mobile application built with **Ionic** and **Angular**, designed to help users track and manage their workouts. The app allows users to log exercises, set fitness goals, and track progress over time. This project is still a **work in progress**, and additional features are being added regularly.
 
 ## Features (Planned)
